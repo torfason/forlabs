@@ -1,0 +1,10 @@
+#' @keywords internal
+"_PACKAGE"
+
+## usethis namespace: start
+#' @importFrom rlang %||%
+## usethis namespace: end
+NULL
+
+# Allow certain global variables (for NSE)
+globalVariables(c("v", "l", "n"))
