@@ -4,6 +4,8 @@
 # forlabs
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/torfason/forlabs/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/torfason/forlabs/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 ## Tools for Working with Labelled Variables
