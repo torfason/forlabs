@@ -4,9 +4,17 @@
 \name{forlabs-package}
 \alias{forlabs}
 \alias{forlabs-package}
-\title{forlabs: Tools for Working with Labelled Variables (haven_labelled)}
+\title{forlabs: Tools for Working with Labelled Variables}
 \description{
 This package aims to be for labelled variables (haven_labelled) what the `forcats` package is for categorical variables (factors).
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/torfason/forlabs}
+  \item Report bugs at \url{https://github.com/torfason/forlabs/issues}
+}
+
 }
 \author{
 \strong{Maintainer}: Magnus Thor Torfason \email{m@zulutime.net}

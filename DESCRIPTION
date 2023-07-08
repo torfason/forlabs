@@ -1,5 +1,5 @@
 Package: forlabs
-Title: Tools for Working with Labelled Variables (haven_labelled)
+Title: Tools for Working with Labelled Variables
 Version: 0.0.1
 Authors@R: 
     person("Magnus Thor", "Torfason", , "m@zulutime.net", role = c("aut", "cre"))
@@ -15,9 +15,11 @@ Imports:
     haven,
     labelled,
     rlang,
+    sjlabelled,
     tibble
 Suggests: 
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    gt
 Config/testthat/edition: 3
 URL: https://github.com/torfason/forlabs
 BugReports: https://github.com/torfason/forlabs/issues
