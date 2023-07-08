@@ -24,22 +24,25 @@ pak::pak("torfason/forlabs")
 
 ## Usage
 
-The many useful functions provided by `forcats` are useful for working
-with factors, but if the variable of interest is `labelled` rather than
-`factor` it is helpful to have utilities that work with them natively.
+The many useful functions provided by `forcats` are invaluable when
+working with factors, but if the variable of interest is `labelled`
+rather than `factor` it is better to have utilities that work with the
+variable natively.
 
-The functions in `forlabs` should be as closely comparable to those in
-`forcats`.
-
-The following shows a count table for a `labelled` vector of veggies:
+The functions in `forlabs` should therefore be as closely comparable to
+those in `forcats` as possible. For example, the following shows a count
+table for a `labelled` vector of veggies:
 
 ``` r
 library(labelled)
 library(forlabs)
-## basic example code
+
+## Generate the veggies variable, a list of 20 veggies, of five types
 set.seed(42)
 veggie_types <- c("Broccoli" = 1, "Carrot" = 2, "Cucumber" = 3, "Potato" = 4, "Tomato" = 5)
 veggies <- labelled(rbinom(20, 5, 0.7), labels = veggie_types)
+
+# Count the different levels
 lbl_count(veggies) |> gt::gt()
 ```
 
@@ -466,7 +469,11 @@ function instead:
 
 ``` r
 library(forcats)
+
+# Convert veggies to factor
 veggies_fct <- as_factor(veggies)
+
+# Count the different levels
 fct_count(veggies_fct) |> gt::gt()
 ```
 
