@@ -12,14 +12,15 @@ RoxygenNote: 7.2.3
 Imports: 
     cli,
     dplyr,
+    forcats,
     haven,
     labelled,
     rlang,
     sjlabelled,
     tibble
 Suggests: 
-    testthat (>= 3.0.0),
-    gt
+    gt,
+    testthat (>= 3.0.0)
 Config/testthat/edition: 3
 URL: https://github.com/torfason/forlabs, https://torfason.github.io/forlabs/
 BugReports: https://github.com/torfason/forlabs/issues

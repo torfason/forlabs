@@ -12,6 +12,7 @@ This package aims to be for labelled variables (haven_labelled) what the `forcat
 Useful links:
 \itemize{
   \item \url{https://github.com/torfason/forlabs}
+  \item \url{https://torfason.github.io/forlabs/}
   \item Report bugs at \url{https://github.com/torfason/forlabs/issues}
 }
 
