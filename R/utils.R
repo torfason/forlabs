@@ -5,6 +5,9 @@ check_labelled <- function(x, arg = rlang::caller_arg(x), call = rlang::caller_e
     if ( is.unsorted(attr(x, "labels"), strictly=TRUE) ) {
       #warning("Note that the label levels are unsorted")
     }
+    if (typeof(x) != typeof(attr(x, "labels"))) {
+      stop("Type of labels does not match type of data")
+    }
     x
   } else {
     cli::cli_abort(

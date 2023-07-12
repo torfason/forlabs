@@ -7,4 +7,4 @@
 NULL
 
 # Allow certain global variables (for NSE)
-globalVariables(c("v", "l", "n"))
+globalVariables(".data")

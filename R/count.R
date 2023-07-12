@@ -32,14 +32,14 @@ lbl_count <- function(x, sort = FALSE, prop = FALSE) {
             l = get_labelled_labels_m(x))
 
   df <- d.n |>
-    dplyr::count(v, l) |>
+    dplyr::count(.data$v, .data$l) |>
     dplyr::full_join(d.m, by = c("v","l"))
   df$n[is.na(df$n)] <- 0  # NA in n signals no entries with that label
 
   if (sort) {
-    df <- df |> dplyr::arrange(dplyr::desc(n), v)
+    df <- df |> dplyr::arrange(dplyr::desc(.data$n), .data$v)
   } else {
-    df <- df |> dplyr::arrange(v)
+    df <- df |> dplyr::arrange(.data$v)
   }
 
   if (prop) {
