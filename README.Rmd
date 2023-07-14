@@ -27,8 +27,8 @@ knitr::opts_chunk$set(
 
 ## Installation
 
-You can use `pak` to install the development version of `forlabs` from
-[GitHub](https://github.com/torfason/forlabs) with:
+Use `pak` to install the development version of `forlabs` from
+[GitHub](https://github.com/torfason/forlabs):
 
 ```r
 pak::pak("torfason/forlabs")
@@ -36,13 +36,9 @@ pak::pak("torfason/forlabs")
 
 ## Usage
 
-The many useful functions provided by `forcats` are invaluable when working with
-factors, but if the variable of interest is `labelled` rather than `factor` it
-is better to have utilities that work with the variable natively.
+The forcats package offers an extensive suite of functions tailored for handling factor variables effectively. This package presents a complementary set of functions, designed specifically to operate seamlessly on haven_labelled vectors.
 
-The functions in `forlabs` should therefore be as closely comparable to those in
-`forcats` as possible. For example, the following shows a count table for a
-`labelled` vector of veggies:
+The functions included in forlabs are designed to emulate the functionality of those in forcats as closely as possible. For instance, the following illustration presents a frequency table generated for a `haven_labelled` vector of vegetables:
 
 ```{r example}
 library(labelled)
@@ -57,7 +53,7 @@ veggies <- labelled(rbinom(20, 5, 0.7), labels = veggie_types)
 lbl_count(veggies) |> gt::gt()
 ```
 
-If we had a `factor` variable we would have used the parallel `forcats` function
+If we had a `factor` variable we would have used the equivalent `forcats` function
 instead:
 
 ```{r}
@@ -69,4 +65,3 @@ veggies_fct <- as_factor(veggies)
 # Count the different levels
 fct_count(veggies_fct) |> gt::gt()
 ```
-
