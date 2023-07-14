@@ -3,6 +3,7 @@
 export(as_factor)
 export(as_labelled)
 export(lbl_count)
+export(lbl_shift)
 importFrom(forcats,as_factor)
 importFrom(rlang,"%||%")
 importFrom(sjlabelled,as_labelled)

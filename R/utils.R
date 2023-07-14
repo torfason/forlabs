@@ -1,20 +1,23 @@
 
 # Check that a variable is a labelled vector
-check_labelled <- function(x, arg = rlang::caller_arg(x), call = rlang::caller_env()) {
-  if (labelled::is.labelled(x)) {
-    if ( is.unsorted(attr(x, "labels"), strictly=TRUE) ) {
-      #warning("Note that the label levels are unsorted")
-    }
-    if (typeof(x) != typeof(attr(x, "labels"))) {
-      stop("Type of labels does not match type of data")
-    }
-    x
-  } else {
-    cli::cli_abort(
-      "{.arg {arg}} must be a labelled vector, not {.obj_type_friendly {x}}.",
-      call = call
-    )
+check_labelled <- function(x, strict = FALSE) {
+
+  if (!labelled::is.labelled(x)) {
+    stop("Argument must be of type haven_labelled")
   }
+  if (typeof(x) != typeof(attr(x, "labels"))) {
+    stop("Type of labels does not match type of data")
+  }
+  if (strict) {
+    if ( is.unsorted(labelled::val_labels(x), strictly=TRUE) ) {
+      stop("Label levels must be sorted (strict)")
+    }
+    if ( !all(is.na(labelled::val_labels_to_na(x)))) {
+      stop("Unlabelled values not allowed (strict)")
+    }
+  }
+
+  x
 }
 
 # Check that a variable is a list of labelled vectors
