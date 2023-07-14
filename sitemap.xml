@@ -19,10 +19,16 @@
     <loc>https://torfason.github.io/forlabs/reference/forlabs-package.html</loc>
   </url>
   <url>
+    <loc>https://torfason.github.io/forlabs/reference/fruit_and_veggies.html</loc>
+  </url>
+  <url>
     <loc>https://torfason.github.io/forlabs/reference/index.html</loc>
   </url>
   <url>
     <loc>https://torfason.github.io/forlabs/reference/lbl_count.html</loc>
+  </url>
+  <url>
+    <loc>https://torfason.github.io/forlabs/reference/lbl_shift.html</loc>
   </url>
   <url>
     <loc>https://torfason.github.io/forlabs/reference/reexports.html</loc>
