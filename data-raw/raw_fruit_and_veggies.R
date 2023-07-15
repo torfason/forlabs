@@ -33,7 +33,7 @@ plains <- c("Carrot", "Potato", "Tomato", "Cucumber", "Broccoli")
 exotics <- c("Bokchoy", "Celeriac", "Chayote", "Eggplant", "Endive", "Fennel", "Jicama", "Kohlrabi", "Okra", "Radicchio", "Rutabaga", "Taro", "Zucchini")
 
 plain.var_label  <- "The regular veggies are indexed by the prime numbers 2-11"
-exotic.var_label <- paste0("The exotic veggies are indexed the prime numbers 2-41. ",
+exotic.var_label <- paste0("The exotic veggies are indexed by the prime numbers 2-41. ",
                        "No observations exist for indexes 7 and 41, ",
                        "but 5 unlabelled observations exist for index 43, ",
                        "and 6 observations are missing values.")
