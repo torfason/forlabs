@@ -40,3 +40,13 @@ test_that("lbl_count(fruit) works", {
   expect_equal(lbl_count(strangefruit), d.strangefruit_count)
 
 })
+
+
+test_that("lbl_count(include_var_label = TRUE) works", {
+
+  expected <- lbl_count(veggies) |>
+    dplyr::bind_rows(tibble::tibble(v = NA, l = "var_label: The regular veggies are indexed by the prime numbers 2-11", n = NA))
+  actual <- lbl_count(veggies, include_var_label = TRUE)
+
+  expect_equal(actual, expected)
+})

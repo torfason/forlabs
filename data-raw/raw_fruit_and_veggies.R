@@ -32,6 +32,12 @@ primes <- c(2L, 3L, 5L, 7L, 11L, 13L, 17L, 19L, 23L, 29L, 31L, 37L, 41L, 43L, 47
 plains <- c("Carrot", "Potato", "Tomato", "Cucumber", "Broccoli")
 exotics <- c("Bokchoy", "Celeriac", "Chayote", "Eggplant", "Endive", "Fennel", "Jicama", "Kohlrabi", "Okra", "Radicchio", "Rutabaga", "Taro", "Zucchini")
 
+plain.var_label  <- "The regular veggies are indexed by the prime numbers 2-11"
+exotic.var_label <- paste0("The exotic veggies are indexed the prime numbers 2-41. ",
+                       "No observations exist for indexes 7 and 41, ",
+                       "but 5 unlabelled observations exist for index 43, ",
+                       "and 6 observations are missing values.")
+
 # Sample indexes for plain and exotic veggies
 set.seed(43)
 ix_plain <- sample(1:5, 50,  TRUE, prob=17:13)
@@ -42,6 +48,7 @@ veggies <- labelled::labelled(primes[ix_plain])
 labs <- primes[1:5]
 names(labs) = plains
 labelled::val_labels(veggies) <- labs
+labelled::var_label(veggies) <- plain.var_label
 veggies |> lbl_count()
 
 # Generate exotic veggies
@@ -49,6 +56,7 @@ exotic_veggies <- labelled::labelled(primes[ix_exotic])
 labs <- primes[1:13]
 names(labs) = exotics
 labelled::val_labels(exotic_veggies) <- labs
+labelled::var_label(exotic_veggies) <- exotic.var_label
 exotic_veggies |> lbl_count()
 
 # Use this data in the package

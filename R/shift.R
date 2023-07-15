@@ -42,7 +42,9 @@ lbl_shift <- function(x, n = -1L, rotate = FALSE) {
     n <- as.integer(n)
   }
 
-  labelled::labelled(x + n, labels = labelled::val_labels(x) + n)
+  labelled::labelled(x + n,
+                     labels = labelled::val_labels(x) + n,
+                     label = labelled::var_label(x))
 }
 
 

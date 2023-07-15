@@ -4,7 +4,7 @@
 \alias{lbl_count}
 \title{Count entries in a labelled variable}
 \usage{
-lbl_count(x, sort = FALSE, prop = FALSE)
+lbl_count(x, sort = FALSE, prop = FALSE, ..., include_var_label = FALSE)
 }
 \arguments{
 \item{x}{A labelled variable}
@@ -14,6 +14,10 @@ float to the top. If it is false, the result will be sorted in the order of
 the \emph{values} of the labelled variable.}
 
 \item{prop}{If \code{TRUE}, compute the fraction of marginal table.}
+
+\item{...}{Currently unused}
+
+\item{include_var_label}{Should an extra line be included with the variable label (if any).}
 }
 \value{
 A tibble with columns \code{v}, \code{l}, \code{n} and \code{p}, if prop is \code{TRUE}.

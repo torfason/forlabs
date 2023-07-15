@@ -28,11 +28,12 @@ demonstrate the difference between factors and labelled vectors.
 assigned to different vegetables, serving as a basic vegetable dataset.
 Rather than running from \code{1:n}, the values are prime numbers, illustrating
 how labelled variables are more flexible than factors regarding the
-underlying values behind the labels.
+underlying values behind the labels. This variable also has a \code{var_label}.
 
 \code{exotic_veggies} is an extension of \code{veggies} with more exotic
-vegetable names as labels. More importantly, this demonstrates how different
-types of missing values behave with labelled values. Specifically:
+vegetable names as labels, and has a \code{var_label}. More importantly, this
+demonstrates how different types of missing values behave with labelled
+values. Specifically:
 \itemize{
 \item There are no observations of \verb{[7] Eggplant} or \verb{[41] Zuchini}.
 \item There are five instances of the unlabelled value \verb{[43]} (no corresponding label for this value).

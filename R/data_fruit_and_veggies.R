@@ -43,15 +43,16 @@
 #'   assigned to different vegetables, serving as a basic vegetable dataset.
 #'   Rather than running from `1:n`, the values are prime numbers, illustrating
 #'   how labelled variables are more flexible than factors regarding the
-#'   underlying values behind the labels.
+#'   underlying values behind the labels. This variable also has a `var_label`.
 "veggies"
 
 #' @rdname fruit_and_veggies
 #' @aliases exotic_veggies
 #' @docType data
 #' @format `exotic_veggies` is an extension of `veggies` with more exotic
-#'   vegetable names as labels. More importantly, this demonstrates how different
-#'   types of missing values behave with labelled values. Specifically:
+#'   vegetable names as labels, and has a `var_label`. More importantly, this
+#'   demonstrates how different types of missing values behave with labelled
+#'   values. Specifically:
 #'
 #'   * There are no observations of `[7] Eggplant` or `[41] Zuchini`.
 #'   * There are five instances of the unlabelled value `[43]` (no corresponding label for this value).
