@@ -35,9 +35,9 @@ vegetable names as labels, and has a \code{var_label}. More importantly, this
 demonstrates how different types of missing values behave with labelled
 values. Specifically:
 \itemize{
-\item There are no observations of \verb{[7] Eggplant} or \verb{[41] Zuchini}.
-\item There are five instances of the unlabelled value \verb{[43]} (no corresponding label for this value).
-\item There are six instances of \verb{[NA]}, which also does not have a corresponding label.
+\item There are no observations of \verb{[7] Eggplant} or \verb{[41] Zucchini}.
+\item There are eight instances of unlabelled values (\verb{[4]}, \verb{[8]}, \verb{[16]}, \verb{[and 31]} (no corresponding label for this value).
+\item There is one instance of \verb{[NA]}, which also does not have a corresponding label.
 }
 }
 \source{

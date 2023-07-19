@@ -54,7 +54,7 @@
 #'   demonstrates how different types of missing values behave with labelled
 #'   values. Specifically:
 #'
-#'   * There are no observations of `[7] Eggplant` or `[41] Zuchini`.
-#'   * There are five instances of the unlabelled value `[43]` (no corresponding label for this value).
-#'   * There are six instances of `[NA]`, which also does not have a corresponding label.
+#'   * There are no observations of `[7] Eggplant` or `[41] Zucchini`.
+#'   * There are eight instances of unlabelled values (`[4]`, `[8]`, `[16]`, `[and 31]` (no corresponding label for this value).
+#'   * There is one instance of `[NA]`, which also does not have a corresponding label.
 "exotic_veggies"

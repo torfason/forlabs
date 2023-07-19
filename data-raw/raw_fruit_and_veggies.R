@@ -1,4 +1,7 @@
 
+# Load the package
+library(forlabs)
+
 # ---- Fruit ----
 
 # Define fruit, very basic test data, with both a lbl and fct version
@@ -35,15 +38,12 @@ exotics <- c("Bokchoy", "Celeriac", "Chayote", "Eggplant", "Endive", "Fennel", "
 plain.var_label  <- "The regular veggies are indexed by the prime numbers 2-11"
 exotic.var_label <- paste0("The exotic veggies are indexed by the prime numbers 2-41. ",
                        "No observations exist for indexes 7 and 41, ",
-                       "but 5 unlabelled observations exist for index 43, ",
-                       "and 6 observations are missing values.")
-
-# Sample indexes for plain and exotic veggies
-set.seed(43)
-ix_plain <- sample(1:5, 50,  TRUE, prob=17:13)
-ix_exotic <- sample(c(1:14, NA), 50, TRUE, prob=c(17:15, 0, 14:7, 0, 11, 11))
+                       "but 8 unlabelled observations exist (for indexes 2, 8, 16 and 32), ",
+                       "and 1 observations is NA")
 
 # Generate plain veggies
+set.seed(43)
+ix_plain <- sample(1:5, 50,  TRUE, prob=17:13)
 veggies <- labelled::labelled(primes[ix_plain])
 labs <- primes[1:5]
 names(labs) = plains
@@ -52,7 +52,10 @@ labelled::var_label(veggies) <- plain.var_label
 veggies |> lbl_count()
 
 # Generate exotic veggies
-exotic_veggies <- labelled::labelled(primes[ix_exotic])
+set.seed(44)
+ix_exotic <- sample(c(1:13, NA), 40, TRUE, prob=c(17:15, 0, 14:7, 0, 11))
+vals_exotic <- c (primes[ix_exotic], sample(c(4,8,16,32), 10, TRUE)) |> sample()
+exotic_veggies <- labelled::labelled(vals_exotic)
 labs <- primes[1:13]
 names(labs) = exotics
 labelled::val_labels(exotic_veggies) <- labs
