@@ -1,6 +1,8 @@
 
 # Check that a variable is a labelled vector
-check_labelled <- function(x, strict = FALSE) {
+check_labelled <- function(x, strict = FALSE,
+                           check_all_labelled = strict,
+                           check_sorted = strict) {
 
   if (!labelled::is.labelled(x)) {
     stop("Argument must be of type haven_labelled")
@@ -8,14 +10,12 @@ check_labelled <- function(x, strict = FALSE) {
   if (typeof(x) != typeof(attr(x, "labels"))) {
     stop("Type of labels does not match type of data")
   }
-  if (strict) {
-    if ( is.unsorted(labelled::val_labels(x), strictly=TRUE) ) {
-      stop("Label levels must be sorted (strict)")
-    }
-    if ( !all(is.na(labelled::val_labels_to_na(x)))) {
-      stop("Unlabelled values not allowed (strict)")
-    }
+  if (check_all_labelled && !all(is.na(labelled::val_labels_to_na(x)))) {
+    stop("Unlabelled values not allowed (check_all_labelled)")
   }
+  if (check_sorted && is.unsorted(labelled::val_labels(x), strictly=TRUE) ) {
+      stop("Label levels must be sorted (check_sorted)")
+    }
 
   x
 }

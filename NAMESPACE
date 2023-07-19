@@ -3,6 +3,8 @@
 export(as_factor)
 export(as_labelled)
 export(lbl_count)
+export(lbl_densify)
+export(lbl_fill)
 export(lbl_shift)
 importFrom(forcats,as_factor)
 importFrom(rlang,"%||%")
