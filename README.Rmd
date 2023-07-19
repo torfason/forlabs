@@ -36,32 +36,52 @@ pak::pak("torfason/forlabs")
 
 ## Usage
 
-The forcats package offers an extensive suite of functions tailored for handling factor variables effectively. This package presents a complementary set of functions, designed specifically to operate seamlessly on haven_labelled vectors.
+The forcats package offers an extensive suite of functions tailored for handling
+factor variables effectively. This package presents a complementary set of
+functions, designed specifically to operate seamlessly on haven_labelled
+vectors.
 
-The functions included in forlabs are designed to emulate the functionality of those in forcats as closely as possible. For instance, the following illustration presents a frequency table generated for a `haven_labelled` vector of vegetables:
+The functions included in forlabs are designed to emulate the functionality of
+those in forcats as closely as possible. For instance, the following
+illustration uses `lbl_count()` to create a frequency table generated for a
+`haven_labelled` vector of fruit, in comparison with how this can be done
+with a `factor` variable using `forcats::fct_count()`:
 
-```{r example}
-library(labelled)
+```{r example_count}
 library(forlabs)
-
-## Generate the veggies variable, a list of 20 veggies, of five types
-set.seed(42)
-veggie_types <- c("Broccoli" = 1, "Carrot" = 2, "Cucumber" = 3, "Potato" = 4, "Tomato" = 5)
-veggies <- labelled(rbinom(20, 5, 0.7), labels = veggie_types)
-
-# Count the different levels
-lbl_count(veggies) |> gt::gt()
-```
-
-If we had a `factor` variable we would have used the equivalent `forcats` function
-instead:
-
-```{r}
 library(forcats)
 
-# Convert veggies to factor
-veggies_fct <- as_factor(veggies)
+# Count the different levels of a labelled variable
+lbl_count(fruit_lbl) |> gt::gt()
 
-# Count the different levels
-fct_count(veggies_fct) |> gt::gt()
+# Count the different levels a factor variable
+fct_count(fruit_fct) |> gt::gt()
 ```
+
+The package also offers functions for shifting and otherwise manipulating
+labelled variables.
+
+```{r}
+# Veggies is indexed by prime number ...
+veggies |> lbl_count() |> gt::gt()
+```
+
+```{r}
+# But can be 'densified' to be indexed by 1:n instead ...
+dense_veggies <- veggies |> lbl_densify()
+dense_veggies |> lbl_count() |> gt::gt()
+```
+
+```{r}
+# And shifted to run from zero instead of 1
+shifted_veggies <- veggies |> lbl_shift()
+shifted_veggies |> lbl_count() |> gt::gt()  
+```
+
+```{r}
+# If a variable contains unlabelled values, as is the
+# case with exotic_veggies, the labels can be filled
+filled_exotic_veggies <- exotic_veggies |> lbl_fill()
+filled_exotic_veggies |> lbl_count() |> gt::gt_preview(top_n=6, bottom_n=2)
+```
+
