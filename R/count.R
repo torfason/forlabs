@@ -23,8 +23,8 @@
 #' @export
 lbl_count <- function(x, sort = FALSE, prop = FALSE, ..., include_var_label = FALSE) {
   x <- check_labelled(x)
-  check_bool(sort)
-  check_bool(prop)
+  checkmate::assert_flag(sort)
+  checkmate::assert_flag(prop)
 
   d.n <- tibble::tibble(
             v = get_labelled_values_n(x),
