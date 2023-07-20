@@ -3,16 +3,20 @@ Title: Tools for Working with Labelled Variables
 Version: 0.0.1
 Authors@R: 
     person("Magnus Thor", "Torfason", , "m@zulutime.net", role = c("aut", "cre"))
-Description: This package aims to be for labelled variables (`haven_labelled`)
-    what the `forcats` package is for categorical variables (`factor`).
+Description: This package aims to be for labelled variables
+    (`haven_labelled`) what the `forcats` package is for categorical
+    variables (`factor`).
 License: MIT + file LICENSE
-Encoding: UTF-8
-Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
+URL: https://github.com/torfason/forlabs,
+    https://torfason.github.io/forlabs/
+BugReports: https://github.com/torfason/forlabs/issues
+Depends: 
+    R (>= 2.10)
 Imports: 
     cli,
     dplyr,
     forcats,
+    glue,
     haven,
     labelled,
     rlang,
@@ -20,10 +24,10 @@ Imports:
     tibble
 Suggests: 
     gt,
+    purrr,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
-URL: https://github.com/torfason/forlabs, https://torfason.github.io/forlabs/
-BugReports: https://github.com/torfason/forlabs/issues
-Depends: 
-    R (>= 2.10)
+Encoding: UTF-8
 LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3

@@ -34,8 +34,8 @@ labels correctly associated with their respective values throughout the
 densifying process.
 }
 \examples{
-# Densify the veggies vector, then examine the result with lbl_count()
-lbl_densify(veggies)
-lbl_densify(veggies) |> lbl_count()
+  # Densify the veggies vector, then examine the result with lbl_count()
+  lbl_densify(veggies)
+  lbl_densify(veggies) |> lbl_count()
 
 }

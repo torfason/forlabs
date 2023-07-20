@@ -39,6 +39,7 @@ sense, and so shifting such vectors is not currently supported.
   lbl_shift(fruit_lbl)
   lbl_shift(fruit_lbl_int, 1)
   lbl_shift(veggies, 20)
+
 }
 \seealso{
 \code{\link[forcats:fct_shift]{forcats::fct_shift()}}

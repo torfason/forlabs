@@ -17,7 +17,10 @@ The \code{lbl_drop} function takes a labelled vector and removes labels that are
 not associated with any value in the vector.
 }
 \examples{
-# Create labeled vector with unused labels
-lbl_drop(exotic_veggies)
+  # Create labeled vector with unused labels
+  lbl_drop(exotic_veggies)
 
+}
+\seealso{
+\code{\link[forcats:fct_drop]{forcats::fct_drop()}}
 }

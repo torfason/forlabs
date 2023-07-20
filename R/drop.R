@@ -1,3 +1,4 @@
+
 #' Drop unused labels in a labelled vector
 #'
 #' The `lbl_drop` function takes a labelled vector and removes labels that are
@@ -8,8 +9,10 @@
 #' @return A labeled vector of the same length as x, without unused labels.
 #'
 #' @examples
-#' # Create labeled vector with unused labels
-#' lbl_drop(exotic_veggies)
+#'   # Create labeled vector with unused labels
+#'   lbl_drop(exotic_veggies)
+#'
+#' @seealso [forcats::fct_drop()]
 #'
 #' @export
 lbl_drop <- function(x) {

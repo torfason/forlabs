@@ -9,15 +9,16 @@ lbl_count(x, sort = FALSE, prop = FALSE, ..., include_var_label = FALSE)
 \arguments{
 \item{x}{A labelled variable}
 
-\item{sort}{If \code{TRUE}, the result will be sorted so that the most common values
-float to the top. If it is false, the result will be sorted in the order of
-the \emph{values} of the labelled variable.}
+\item{sort}{If \code{TRUE}, the result will be sorted so that the most common
+values float to the top. If it is false, the result will be sorted in the
+order of the \emph{values} of the labelled variable.}
 
 \item{prop}{If \code{TRUE}, compute the fraction of marginal table.}
 
 \item{...}{Currently unused}
 
-\item{include_var_label}{Should an extra line be included with the variable label (if any).}
+\item{include_var_label}{Should an extra line be included with the variable
+label (if any).}
 }
 \value{
 A tibble with columns \code{v}, \code{l}, \code{n} and \code{p}, if prop is \code{TRUE}.
@@ -26,13 +27,12 @@ A tibble with columns \code{v}, \code{l}, \code{n} and \code{p}, if prop is \cod
 Count entries in a labelled variable
 }
 \examples{
-set.seed(42)
-fruit <- labelled::labelled(
-  sample(c(2L, 3L, 5L, 7L, 11L), 100, TRUE, prob=c(3,3,2,5,1)),
-  labels = c(Apple = 2, Orange = 7, Peach = 11, Banana = 3, Lime = 5),
-  label = "Some fruits")
-table(fruit)
-lbl_count(fruit)
-lbl_count(fruit, sort = TRUE)
-lbl_count(fruit, sort = TRUE, prop = TRUE)
+  table(fruit_lbl)
+  lbl_count(fruit_lbl)
+  lbl_count(fruit_lbl, sort = TRUE)
+  lbl_count(fruit_lbl, sort = TRUE, prop = TRUE)
+
+}
+\seealso{
+\code{\link[forcats:fct_count]{forcats::fct_count()}}
 }

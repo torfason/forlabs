@@ -13,12 +13,10 @@
 #' @return A labeled vector of the same length as x, with labels for all values.
 #'
 #' @examples
-#' # Fill the unlabelled values in the exotic_veggies example variable
-#' lbl_fill(exotic_veggies)
+#'   # Fill the unlabelled values in the exotic_veggies example variable
+#'   lbl_fill(exotic_veggies)
 #'
 #' @export
-#'
-#' @md
 lbl_fill <- function(x, fill_na = FALSE, pattern = "<{v}>") {
 
   # Get the existing labels

@@ -23,12 +23,16 @@
 #' @param rotate A logical. If TRUE, it would perform a rotating shift on the
 #'   labels. However, this feature is currently not implemented. Default is
 #'   FALSE.
+#'
 #' @return A `labelled` object with shifted labels.
+#'
 #' @examples
 #'   lbl_shift(fruit_lbl)
 #'   lbl_shift(fruit_lbl_int, 1)
 #'   lbl_shift(veggies, 20)
+#'
 #' @seealso [forcats::fct_shift()]
+#'
 #' @export
 lbl_shift <- function(x, n = -1L, rotate = FALSE) {
   check_labelled(x, strict = TRUE)

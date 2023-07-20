@@ -21,7 +21,7 @@ The \code{lbl_fill} function takes a labeled vector and creates new labels for a
 values that are present in the vector but do not have an existing label.
 }
 \examples{
-# Fill the unlabelled values in the exotic_veggies example variable
-lbl_fill(exotic_veggies)
+  # Fill the unlabelled values in the exotic_veggies example variable
+  lbl_fill(exotic_veggies)
 
 }

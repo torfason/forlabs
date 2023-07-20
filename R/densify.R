@@ -23,9 +23,9 @@
 #' their respective values and the variable label (if present) is preserved.
 #'
 #' @examples
-#' # Densify the veggies vector, then examine the result with lbl_count()
-#' lbl_densify(veggies)
-#' lbl_densify(veggies) |> lbl_count()
+#'   # Densify the veggies vector, then examine the result with lbl_count()
+#'   lbl_densify(veggies)
+#'   lbl_densify(veggies) |> lbl_count()
 #'
 #' @export
 lbl_densify <- function(x, unlabelled = c("error", "fill")) {
