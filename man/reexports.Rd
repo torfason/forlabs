@@ -3,8 +3,8 @@
 \docType{import}
 \name{reexports}
 \alias{reexports}
-\alias{as_labelled}
-\alias{as_factor}
+\alias{to_labelled}
+\alias{to_factor}
 \title{Objects exported from other packages}
 \keyword{internal}
 \description{
@@ -12,8 +12,6 @@ These objects are imported from other packages. Follow the links
 below to see their documentation.
 
 \describe{
-  \item{forcats}{\code{\link[forcats]{as_factor}}}
-
-  \item{sjlabelled}{\code{\link[sjlabelled]{as_labelled}}}
+  \item{labelled}{\code{\link[labelled]{to_factor}}, \code{\link[labelled]{to_labelled}}}
 }}
 

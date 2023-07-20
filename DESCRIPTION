@@ -15,14 +15,13 @@ Depends:
 Imports: 
     cli,
     dplyr,
-    forcats,
     glue,
     haven,
     labelled,
     rlang,
-    sjlabelled,
     tibble
 Suggests: 
+    forcats,
     gt,
     purrr,
     testthat (>= 3.0.0)

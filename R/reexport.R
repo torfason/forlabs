@@ -1,8 +1,8 @@
 
-#' @importFrom sjlabelled as_labelled
+#' @importFrom labelled to_labelled
 #' @export
-sjlabelled::as_labelled
+labelled::to_labelled
 
-#' @importFrom forcats as_factor
+#' @importFrom labelled to_factor
 #' @export
-forcats::as_factor
+labelled::to_factor
