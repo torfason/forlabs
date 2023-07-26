@@ -2,30 +2,28 @@
 #' Densify a labeled vector
 #'
 #' The `lbl_densify` function takes a labeled vector and assigns new,
-#' densely-ranked integer values to each unique value in the vector. This is
-#' particularly useful when working with sparse or unevenly distributed data, as
-#' it transforms the data into a format where each unique value is represented
-#' by a unique integer, starting from 1 and increasing by 1 for each new unique
-#' value. The order of the unique values is preserved. This function keeps the
-#' labels correctly associated with their respective values throughout the
-#' densifying process.
+#' densely-ranked integer values to each unique value in the vector. The order
+#' of the unique values is preserved. This function keeps the labels correctly
+#' associated with their respective values throughout the densifying process.
 #'
 #' @param x A labelled vector to be densified.
 #' @param unlabelled This parameter determines the handling of unlabelled values
-#' in the input vector. It can take two values:
-#'    - "error": The function will stop and an error message will be returned if
-#'    there are unlabelled values in the vector.
-#'    - "fill": The function will fill any unlabelled values using the [`lbl_fill()`]
-#'    function before densifying.
+#'   in the input vector. It can take two values:
+#'    - "error": Thow an error if there are unlabelled values in the vector.
+#'    - "fill": Fill in labels for any unlabelled values using [`lbl_fill()`]
+#'   before densifying.
 #'
-#' @return A labeled vector of the same length as the original vector, `x`, but with
-#' values replaced with their dense ranks. The labels are correctly associated with
-#' their respective values and the variable label (if present) is preserved.
+#' @return A labeled vector of the same length as the original vector, `x`, but
+#'   with values replaced with their dense ranks. The labels are correctly
+#'   associated with their respective values and the variable label (if present)
+#'   is preserved.
 #'
 #' @examples
-#'   # Densify the veggies vector, then examine the result with lbl_count()
+#'   # Densify the veggies vector
 #'   lbl_densify(veggies)
-#'   lbl_densify(veggies) |> lbl_count()
+#'
+#'   # Densify exotic_veggies, filling in for unlabelled values
+#'   lbl_densify(exotic_veggies, unlabelled = "fill")
 #'
 #' @export
 lbl_densify <- function(x, unlabelled = c("error", "fill")) {
@@ -44,7 +42,8 @@ lbl_densify <- function(x, unlabelled = c("error", "fill")) {
     }
   }
 
-  # By now we should have a fully labelled vector
+  # By now we should have a fully labelled vector,
+  # (this check is a sanity assertion only, it should not be needed)
   check_labelled(x, strict = TRUE)
 
   # Densify the labels

@@ -17,8 +17,11 @@ The \code{lbl_drop} function takes a labelled vector and removes labels that are
 not associated with any value in the vector.
 }
 \examples{
-  # Create labeled vector with unused labels
+  # Drop unused labels in exotic_veggies
   lbl_drop(exotic_veggies)
+
+  # Fewer observations, fewer used labels
+  lbl_drop(exotic_veggies[1:10])
 
 }
 \seealso{
