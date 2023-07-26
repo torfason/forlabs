@@ -8,21 +8,18 @@
 #' @keywords datasets
 
 #' @rdname fruit_and_veggies
-#' @aliases fruit_lbl
 #' @docType data
 #' @format `fruit_lbl` is a labelled vector of double type. It includes
 #'   different fruit names as labels.
 "fruit_lbl"
 
 #' @rdname fruit_and_veggies
-#' @aliases fruit_lbl_int
 #' @docType data
 #' @format `fruit_lbl_int` is similar to `fruit_lbl`, but it's of integer type.
 #'   It illustrates how labels behave with integer data.
 "fruit_lbl_int"
 
 #' @rdname fruit_and_veggies
-#' @aliases fruit_lbl_chr
 #' @docType data
 #' @format `fruit_lbl_chr` is another variant of `fruit_lbl` where labels are
 #'   assigned to characters instead of numbers, illustrating how string labels
@@ -30,14 +27,12 @@
 "fruit_lbl_chr"
 
 #' @rdname fruit_and_veggies
-#' @aliases fruit_fct
 #' @docType data
 #' @format `fruit_fct` is a factor variant of the fruit dataset. It helps
 #'   demonstrate the difference between factors and labelled vectors.
 "fruit_fct"
 
 #' @rdname fruit_and_veggies
-#' @aliases veggies
 #' @docType data
 #' @format `veggies` is a labelled vector of double type with labels
 #'   assigned to different vegetables, serving as a basic vegetable dataset.
@@ -47,7 +42,6 @@
 "veggies"
 
 #' @rdname fruit_and_veggies
-#' @aliases exotic_veggies
 #' @docType data
 #' @format `exotic_veggies` is an extension of `veggies` with more exotic
 #'   vegetable names as labels, and has a `var_label`. More importantly, this
