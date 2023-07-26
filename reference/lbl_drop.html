@@ -73,7 +73,7 @@ not associated with any value in the vector.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span>  <span class="co"># Create labeled vector with unused labels</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span>  <span class="co"># Drop unused labels in exotic_veggies</span></span></span>
 <span class="r-in"><span>  <span class="fu">lbl_drop</span><span class="op">(</span><span class="va">exotic_veggies</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;labelled&lt;double&gt;[50]&gt;: The exotic veggies are indexed by the prime numbers 2-41. No observations exist for indexes 7 and 41, but 8 unlabelled observations exist (for indexes 2, 8, 16 and 32), and 1 observations is NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1]  2 23  4  2 23 23  5 16  5  3  4  3 37 13  2  3  4 13  3 13 13  5  5 11  2</span>
@@ -92,6 +92,18 @@ not associated with any value in the vector.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     29 Radicchio</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     31  Rutabaga</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     37      Taro</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span>  <span class="co"># Fewer observations, fewer used labels</span></span></span>
+<span class="r-in"><span>  <span class="fu">lbl_drop</span><span class="op">(</span><span class="va">exotic_veggies</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;labelled&lt;double&gt;[10]&gt;: The exotic veggies are indexed by the prime numbers 2-41. No observations exist for indexes 7 and 41, but 8 unlabelled observations exist (for indexes 2, 8, 16 and 32), and 1 observations is NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1]  2 23  4  2 23 23  5 16  5  3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Labels:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  value    label</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      2  Bokchoy</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      3 Celeriac</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      5  Chayote</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     23     Okra</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
