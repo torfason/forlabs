@@ -19,7 +19,8 @@ Imports:
     haven,
     labelled,
     rlang,
-    tibble
+    tibble,
+    vctrs
 Suggests: 
     forcats,
     gt,
