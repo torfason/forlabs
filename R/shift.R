@@ -35,7 +35,13 @@
 #'
 #' @export
 lbl_shift <- function(x, n = -1L, rotate = FALSE) {
+
+  # Check args
+  # NOTE: This should check that x is filled using lbl_assert_filled
   check_labelled(x, strict = TRUE)
+  assert_number(n)
+  assert_flag(rotate)
+
   if (rotate) {
     stop("Rotating labelled is not implemented")
   }

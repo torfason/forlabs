@@ -23,18 +23,12 @@ check_labelled <- function(x, strict = FALSE,
 # Check that a variable is a list of labelled vectors
 check_labelled_list <- function(x, arg = rlang::caller_arg(x), call = rlang::caller_env()) {
   if (!is.list(x)) {
-    cli::cli_abort(
-      "{.arg {arg}} must be a list, not {.obj_type_friendly {x}}.",
-      call = call
-    )
+    stop("Argument must be a list")
   }
 
   is_labelled <- vapply(x, labelled::is.labelled, logical(1))
   if (any(!is_labelled)) {
-    cli::cli_abort(
-      "All elements of {.arg {arg}} must be labelled vectors",
-      call = call
-    )
+    stop("Argument must be a list of haven_labelled objects")
   }
 
   x

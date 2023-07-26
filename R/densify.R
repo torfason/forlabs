@@ -30,7 +30,8 @@
 #' @export
 lbl_densify <- function(x, unlabelled = c("error", "fill")) {
 
-  # Arg processing
+  # Check args
+  check_labelled(x)
   unlabelled <- match.arg(unlabelled)
 
   # Handle unlabelled values in the vector
@@ -47,8 +48,9 @@ lbl_densify <- function(x, unlabelled = c("error", "fill")) {
   check_labelled(x, strict = TRUE)
 
   # Densify the labels
-  labs              <- labelled::val_labels(x)
+  # (NULL val_labels() would be allowed for an empty labelled object,
   dense_labs        <- dplyr::dense_rank(labs)
+  labs              <- val_labels(x) %||% vector(typeof(x))
   names(dense_labs) <- names(labs)
 
   # Densify the values

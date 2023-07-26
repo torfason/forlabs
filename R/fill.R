@@ -19,6 +19,11 @@
 #' @export
 lbl_fill <- function(x, fill_na = FALSE, pattern = "<{v}>") {
 
+  # Check args
+  check_labelled(x)
+  assert_flag(fill_na)
+  assert_string(pattern)
+
   # Get the existing labels
   labs <- val_labels(x) %||% vector(typeof(x))
 

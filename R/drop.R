@@ -9,15 +9,18 @@
 #' @return A labeled vector of the same length as x, without unused labels.
 #'
 #' @examples
-#'   # Create labeled vector with unused labels
+#'   # Drop unused labels in exotic_veggies
 #'   lbl_drop(exotic_veggies)
+#'
+#'   # Fewer observations, fewer used labels
+#'   lbl_drop(exotic_veggies[1:10])
 #'
 #' @seealso [forcats::fct_drop()]
 #'
 #' @export
 lbl_drop <- function(x) {
 
-  # Check input
+  # Check args
   check_labelled(x)
 
   # Get the existing labels
