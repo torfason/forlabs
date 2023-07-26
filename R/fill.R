@@ -20,7 +20,7 @@
 lbl_fill <- function(x, fill_na = FALSE, pattern = "<{v}>") {
 
   # Get the existing labels
-  labs <- labelled::val_labels(x)
+  labs <- val_labels(x) %||% vector(typeof(x))
 
   # Find the values that are not labeled
   new_labs <- setdiff(unique(x), labs)
@@ -37,7 +37,7 @@ lbl_fill <- function(x, fill_na = FALSE, pattern = "<{v}>") {
   labs <- sort(c(labs, new_labs), na.last = ifelse(fill_na, TRUE, NA))
 
   # Assign the updated labels to the vector and preserve variable label
-  x_filled <- labelled::labelled(x, labels = labs, label = labelled::var_label(x))
+  x_filled <- labelled(x, labels = labs, label = var_label(x))
 
   x_filled
 }

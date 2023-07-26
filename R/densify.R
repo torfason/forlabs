@@ -52,9 +52,9 @@ lbl_densify <- function(x, unlabelled = c("error", "fill")) {
   names(dense_labs) <- names(labs)
 
   # Densify the values
-  dense_vals  <- dplyr::dense_rank(as.vector(x))
+  dense_vals  <- vctrs::vec_rank(as.vector(x), ties="dense")
 
   # Create and return a fresh labelled variable, which has densified vals and labs
-  labelled::labelled(dense_vals, labels = dense_labs, label = labelled::var_label(x))
+  labelled(dense_vals, labels = dense_labs, label = var_label(x))
 }
 

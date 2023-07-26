@@ -51,7 +51,7 @@ lbl_count <- function(x, sort = FALSE, prop = FALSE, ..., include_var_label = FA
 
   if (include_var_label) {
     df <- dplyr::bind_rows(df,
-      tibble::tibble(v = NA, l=paste("var_label:", labelled::var_label(x)), n = NA))
+      tibble::tibble(v = NA, l=paste("var_label:", var_label(x)), n = NA))
   }
 
   df

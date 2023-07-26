@@ -20,7 +20,7 @@ test_that("exotic shifting throws errors", {
 
 test_that("variable labels are preserved", {
   expect_equal(
-    lbl_shift(veggies) |> labelled::var_label(),
-    veggies |> labelled::var_label()
+    lbl_shift(veggies) |> var_label(),
+    veggies |> var_label()
   )
 })

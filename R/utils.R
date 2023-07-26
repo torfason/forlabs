@@ -13,7 +13,7 @@ check_labelled <- function(x, strict = FALSE,
   if (check_all_labelled && !all(is.na(labelled::val_labels_to_na(x)))) {
     stop("Unlabelled values not allowed (check_all_labelled)")
   }
-  if (check_sorted && is.unsorted(labelled::val_labels(x), strictly=TRUE) ) {
+  if (check_sorted && is.unsorted(val_labels(x), strictly=TRUE) ) {
       stop("Label levels must be sorted (check_sorted)")
     }
 

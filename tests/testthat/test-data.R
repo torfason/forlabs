@@ -6,8 +6,8 @@ test_that("Example data are of correct types", {
 })
 
 test_that("Example data converts correctly to/from factors", {
-  expect_equal(labelled::to_factor(fruit_lbl),   fruit_fct)
-  expect_equal(labelled::to_labelled(fruit_fct), fruit_lbl)
+  expect_equal(to_factor(fruit_lbl),   fruit_fct)
+  expect_equal(to_labelled(fruit_fct), fruit_lbl)
 })
 
 test_that("Counts are sane", {

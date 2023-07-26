@@ -2,13 +2,13 @@
 # Define test data.
 # Note that the labels are unsorted, as is allowed by the labelled package
 set.seed(42)
-fruit <- labelled::labelled(sample(c(2L, 3L, 5L, 7L, 11L), 100, TRUE, prob=c(3,3,2,5,1)),
+fruit <- labelled(sample(c(2L, 3L, 5L, 7L, 11L), 100, TRUE, prob=c(3,3,2,5,1)),
               labels = c(Apple = 2, Orange = 7, Peach = 11, Banana = 3, Lime = 5),
               label = "Some fruits")
-lessfruit <- labelled::labelled(sample(c(2L, 3L, 7L, 11L), 20, TRUE, prob=4:1),
+lessfruit <- labelled(sample(c(2L, 3L, 7L, 11L), 20, TRUE, prob=4:1),
               labels = c(Apple = 2, Orange = 7, Peach = 11, Banana = 3, Lime = 5),
               label = "Fewer fruits, not all exising fruits are used")
-strangefruit <- labelled::labelled(sample(c(3L, 7L, 13L, NA), 20, TRUE),
+strangefruit <- labelled(sample(c(3L, 7L, 13L, NA), 20, TRUE),
               labels = c(Apple = 2, Orange = 7, Peach = 11, Banana = 3, Lime = 5),
               label = "Strange fruits, some without labels and some are missing")
 
