@@ -52,10 +52,10 @@ library(forlabs)
 library(forcats)
 
 # Count the different levels of a labelled variable
-lbl_count(fruit_lbl) |> gt::gt()
+lbl_count(fruit_lbl) #|> gt::gt()
 
 # Count the different levels a factor variable
-fct_count(fruit_fct) |> gt::gt()
+fct_count(fruit_fct) #|> gt::gt()
 ```
 
 The package also offers functions for shifting and otherwise manipulating
@@ -63,25 +63,36 @@ labelled variables.
 
 ```{r}
 # Veggies is indexed by prime number ...
-veggies |> lbl_count() |> gt::gt()
+veggies |> lbl_count() #|> gt::gt()
 ```
 
 ```{r}
 # But can be 'densified' to be indexed by 1:n instead ...
 dense_veggies <- veggies |> lbl_densify()
-dense_veggies |> lbl_count() |> gt::gt()
+dense_veggies |> lbl_count() #|> gt::gt()
 ```
 
 ```{r}
 # And shifted to run from zero instead of 1
 shifted_veggies <- veggies |> lbl_shift()
-shifted_veggies |> lbl_count() |> gt::gt()  
+shifted_veggies |> lbl_count() #|> gt::gt()  
 ```
 
 ```{r}
 # If a variable contains unlabelled values, as is the
 # case with exotic_veggies, the labels can be filled
 filled_exotic_veggies <- exotic_veggies |> lbl_fill()
-filled_exotic_veggies |> lbl_count() |> gt::gt_preview(top_n=6, bottom_n=2)
+filled_exotic_veggies |> lbl_count() #|> gt::gt_preview(top_n=6, bottom_n=2)
 ```
 
+## Dependencies
+
+The `forlabs` package, almost by definition, depends on `labelled` and `haven`,
+as these packages together define and implement the core class of labelled
+variables (the `haven_labelled`) class.
+
+As these packages depend on a number of other useful packages, including
+`dplyr`, `stringr`, and `reader`, it is possible for `forlabs` to take a
+dependency on those useful packages without incurring any extra installation
+cost, in addition to other more lightweight packages such as `rlang`, `glue`,
+`vctrs` and `tibble`.
