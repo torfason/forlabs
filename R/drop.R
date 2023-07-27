@@ -24,7 +24,7 @@ lbl_drop <- function(x) {
   check_labelled(x)
 
   # Get the existing labels
-  labs <- val_labels(x)
+  labs <- val_labels(x) %||% empty_val_labels(x)
 
   # Find the labels that are not used in the vector
   unused_labs <- setdiff(labs, unique(x))

@@ -106,7 +106,7 @@ lbl_check_labelled <- function(x) {
     return(class_check)
 
   # Ensure val_labels(x) are either NULL or match type of X
-  labs <- val_labels(x) %||% vector(typeof(x))
+  labs <- val_labels(x) %||% empty_val_labels(x)
   if (typeof(labs) != typeof(x))
     return(paste0("Type of val_labels(x) must be '",
                   typeof(x), "' but is '", typeof(labs), "'"))

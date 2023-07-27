@@ -25,7 +25,7 @@ lbl_fill <- function(x, fill_na = FALSE, pattern = "<{v}>") {
   assert_string(pattern)
 
   # Get the existing labels
-  labs <- val_labels(x) %||% vector(typeof(x))
+  labs <- val_labels(x) %||% empty_val_labels(x)
 
   # Find the values that are not labeled
   new_labs <- setdiff(unique(x), labs)

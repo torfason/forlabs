@@ -1,4 +1,12 @@
 
+# Given x, a labelled vector, or of an acceptable type for a labelled vector,
+# return an empty vector that is acceptable as value labels for x.
+empty_val_labels <- function(x) {
+  typeof_x <- typeof(x)
+  assert_choice(typeof_x, c("character", "double", "integer"))
+  vector(typeof_x) |> stats::setNames(character())
+}
+
 # Check that a variable is a labelled vector
 check_labelled <- function(x, strict = FALSE,
                            check_all_labelled = strict,
