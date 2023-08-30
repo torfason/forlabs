@@ -37,8 +37,7 @@
 lbl_shift <- function(x, n = -1L, rotate = FALSE) {
 
   # Check args
-  # NOTE: This should check that x is filled using lbl_assert_filled
-  check_labelled(x, strict = TRUE)
+  lbl_assert_filled(x)
   assert_number(n)
   assert_flag(rotate)
 
@@ -53,7 +52,7 @@ lbl_shift <- function(x, n = -1L, rotate = FALSE) {
   }
 
   # Treat
-  labelled(x + n, labels = val_labels(x) + n, label = var_label(x))
+  labelled(x + n, labels = ll_val_labels(x, always = TRUE) + n, label = ll_var_label(x))
 }
 
 

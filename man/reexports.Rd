@@ -5,10 +5,13 @@
 \name{reexports}
 \alias{reexports}
 \alias{labelled}
-\alias{to_labelled}
-\alias{to_factor}
-\alias{var_label}
-\alias{val_labels}
+\alias{vec_data}
+\alias{vec_c}
+\alias{ll_assert_labelled}
+\alias{ll_to_character}
+\alias{ll_labelled}
+\alias{ll_val_labels}
+\alias{ll_var_label}
 \alias{qassert}
 \alias{assert_flag}
 \alias{assert_int}
@@ -67,6 +70,10 @@ below to see their documentation.
 \describe{
   \item{checkmate}{\code{\link[checkmate:checkAccess]{assert_access}}, \code{\link[checkmate:checkArray]{assert_array}}, \code{\link[checkmate:checkAtomic]{assert_atomic}}, \code{\link[checkmate:checkAtomicVector]{assert_atomic_vector}}, \code{\link[checkmate:checkCharacter]{assert_character}}, \code{\link[checkmate:checkChoice]{assert_choice}}, \code{\link[checkmate:checkClass]{assert_class}}, \code{\link[checkmate:checkComplex]{assert_complex}}, \code{\link[checkmate:checkCount]{assert_count}}, \code{\link[checkmate:checkDataFrame]{assert_data_frame}}, \code{\link[checkmate:checkDataTable]{assert_data_table}}, \code{\link[checkmate:checkDate]{assert_date}}, \code{\link[checkmate:checkDirectoryExists]{assert_directory}}, \code{\link[checkmate:checkDisjunct]{assert_disjunct}}, \code{\link[checkmate:checkDouble]{assert_double}}, \code{\link[checkmate:checkEnvironment]{assert_environment}}, \code{\link[checkmate:checkFactor]{assert_factor}}, \code{\link[checkmate:checkFALSE]{assert_false}}, \code{\link[checkmate:checkFileExists]{assert_file}}, \code{\link[checkmate:checkFlag]{assert_flag}}, \code{\link[checkmate:checkFormula]{assert_formula}}, \code{\link[checkmate:checkFunction]{assert_function}}, \code{\link[checkmate:checkInt]{assert_int}}, \code{\link[checkmate:checkInteger]{assert_integer}}, \code{\link[checkmate:checkIntegerish]{assert_integerish}}, \code{\link[checkmate:checkList]{assert_list}}, \code{\link[checkmate:checkLogical]{assert_logical}}, \code{\link[checkmate:checkMatrix]{assert_matrix}}, \code{\link[checkmate:checkMultiClass]{assert_multi_class}}, \code{\link[checkmate:checkNamed]{assert_named}}, \code{\link[checkmate:checkNames]{assert_names}}, \code{\link[checkmate:checkNull]{assert_null}}, \code{\link[checkmate:checkNumber]{assert_number}}, \code{\link[checkmate:checkNumeric]{assert_numeric}}, \code{\link[checkmate:checkOS]{assert_os}}, \code{\link[checkmate:checkPathForOutput]{assert_path_for_output}}, \code{\link[checkmate:checkPermutation]{assert_permutation}}, \code{\link[checkmate:checkPOSIXct]{assert_posixct}}, \code{\link[checkmate:checkR6]{assert_r6}}, \code{\link[checkmate:checkRaw]{assert_raw}}, \code{\link[checkmate:checkScalar]{assert_scalar}}, \code{\link[checkmate:checkScalarNA]{assert_scalar_na}}, \code{\link[checkmate:checkSetEqual]{assert_set_equal}}, \code{\link[checkmate:checkString]{assert_string}}, \code{\link[checkmate:checkSubset]{assert_subset}}, \code{\link[checkmate:checkTibble]{assert_tibble}}, \code{\link[checkmate:checkTRUE]{assert_true}}, \code{\link[checkmate:checkVector]{assert_vector}}, \code{\link[checkmate]{qassert}}}
 
-  \item{labelled}{\code{\link[labelled:reexports]{labelled}}, \code{\link[labelled]{to_factor}}, \code{\link[labelled]{to_labelled}}, \code{\link[labelled]{val_labels}}, \code{\link[labelled]{var_label}}}
+  \item{haven}{\code{\link[haven]{labelled}}}
+
+  \item{vctrs}{\code{\link[vctrs]{vec_c}}, \code{\link[vctrs]{vec_data}}}
+
+  \item{zmisc}{\code{\link[zmisc]{ll_assert_labelled}}, \code{\link[zmisc]{ll_labelled}}, \code{\link[zmisc]{ll_to_character}}, \code{\link[zmisc]{ll_val_labels}}, \code{\link[zmisc]{ll_var_label}}}
 }}
 

@@ -24,20 +24,22 @@
 lbl_count <- function(x, sort = FALSE, prop = FALSE, ..., include_var_label = FALSE) {
 
   # Check args
-  check_labelled(x)
+  ll_assert_labelled(x)
   assert_flag(sort)
   assert_flag(prop)
   assert_flag(include_var_label)
 
-  # Construct the counts
+  # Get the existing labels
+  labs <- ll_val_labels(x, always = TRUE)
 
+  # Construct the counts
   d.n <- tibble::tibble(
-            v = get_labelled_values_n(x),
-            l = get_labelled_labels_n(x) )
+            v = as.vector(x),
+            l = ll_to_character(x, default = NA))
 
   d.m <- tibble::tibble(
-            v = get_labelled_values_m(x),
-            l = get_labelled_labels_m(x))
+            v = as.vector(labs),
+            l = names(labs))
 
   df <- d.n |>
     dplyr::count(.data$v, .data$l) |>
@@ -56,7 +58,7 @@ lbl_count <- function(x, sort = FALSE, prop = FALSE, ..., include_var_label = FA
 
   if (include_var_label) {
     df <- dplyr::bind_rows(df,
-      tibble::tibble(v = NA, l=paste("var_label:", var_label(x)), n = NA))
+      tibble::tibble(v = NA, l=paste("var_label:", ll_var_label(x)), n = NA))
   }
 
   df

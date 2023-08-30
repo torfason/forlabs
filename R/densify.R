@@ -1,10 +1,15 @@
 
 #' Densify a labeled vector
 #'
-#' The `lbl_densify` function takes a labeled vector and assigns new,
+#' @description
+#' The `lbl_densify` function takes a labelled vector and assigns new,
 #' densely-ranked integer values to each unique value in the vector. The order
 #' of the unique values is preserved. This function keeps the labels correctly
 #' associated with their respective values throughout the densifying process.
+#'
+#' The subtype (`typeof(x)`) of the labelled is preserved for `double` and
+#' `integer`, but `character` variables (`<labelled<character>>`) are not
+#' supported as densification is not applicable for character strings.
 #'
 #' @param x A labelled vector to be densified.
 #' @param unlabelled This parameter determines the handling of unlabelled values
@@ -29,11 +34,12 @@
 lbl_densify <- function(x, unlabelled = c("error", "fill")) {
 
   # Check args
-  check_labelled(x)
+  ll_assert_labelled(x)
+  (typeof(x) != "character") || stop("x must not be of character type (<labelled<character>>)")
   unlabelled <- match.arg(unlabelled)
 
-  # Handle unlabelled values in the vector
-  if (!all(is.na(labelled::val_labels_to_na(x)))) {
+  # Check if x is filled, and deal with it if it isn't
+  if (!lbl_test_filled(x)) {
     if (unlabelled == "error") {
       stop('There are unlabelled values in x, and the parameter unlabelled == "error"')
     } else if (unlabelled == "fill") {
@@ -44,19 +50,29 @@ lbl_densify <- function(x, unlabelled = c("error", "fill")) {
 
   # By now we should have a fully labelled vector,
   # (this check is a sanity assertion only, it should not be needed)
-  check_labelled(x, strict = TRUE)
+  lbl_assert_filled(x)
 
   # Densify the labels
   # (NULL val_labels() would be allowed for an empty labelled object,
   # as they are already both filled and densified))
-  labs              <- val_labels(x) %||% empty_val_labels(x)
+  labs              <- ll_val_labels(x, always = TRUE)
   dense_labs        <- vctrs::vec_rank(labs, ties="dense")
-  names(dense_labs) <- names(labs)
 
   # Densify the values
-  dense_vals  <- vctrs::vec_rank(as.vector(x), ties="dense")
+  dense_vals  <- vctrs::vec_rank(vec_data(x), ties="dense")
+
+  # Ensure correct type, and assign names
+  if (typeof(x) == "double") {
+    dense_vals <- as.double(dense_vals)
+    dense_labs <- as.double(dense_labs)
+  }
+  names(dense_labs) <- names(labs)
 
   # Create and return a fresh labelled variable, which has densified vals and labs
-  labelled(dense_vals, labels = dense_labs, label = var_label(x))
+  result <- labelled(dense_vals, labels = dense_labs, label = ll_var_label(x))
+
+  # Sanity assertion, this should always be true
+  lbl_assert_dense(result)
+  result
 }
 

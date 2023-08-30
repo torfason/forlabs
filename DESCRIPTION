@@ -1,6 +1,6 @@
 Package: forlabs
 Title: Tools for Working with Labelled Variables
-Version: 0.0.1
+Version: 0.0.2
 Authors@R: 
     person("Magnus Thor", "Torfason", , "m@zulutime.net", role = c("aut", "cre"))
 Description: This package aims to be for labelled variables
@@ -17,13 +17,14 @@ Imports:
     dplyr,
     glue,
     haven,
-    labelled,
     rlang,
     tibble,
-    vctrs
+    vctrs,
+    zmisc
 Suggests: 
     forcats,
     gt,
+    labelled,
     purrr,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3

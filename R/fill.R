@@ -20,12 +20,12 @@
 lbl_fill <- function(x, fill_na = FALSE, pattern = "<{v}>") {
 
   # Check args
-  check_labelled(x)
+  ll_assert_labelled(x)
   assert_flag(fill_na)
   assert_string(pattern)
 
   # Get the existing labels
-  labs <- val_labels(x) %||% empty_val_labels(x)
+  labs <- ll_val_labels(x, always = TRUE)
 
   # Find the values that are not labeled
   new_labs <- setdiff(unique(x), labs)
@@ -39,10 +39,10 @@ lbl_fill <- function(x, fill_na = FALSE, pattern = "<{v}>") {
   names(new_labs) <- glue::glue_safe(pattern, .envir = glue_env)
 
   # Merge the old and new labels, use na.last to control if NA are included
-  labs <- sort(c(labs, new_labs), na.last = ifelse(fill_na, TRUE, NA))
+  labs <- sort(vec_c(labs, new_labs), na.last = ifelse(fill_na, TRUE, NA))
 
   # Assign the updated labels to the vector and preserve variable label
-  x_filled <- labelled(x, labels = labs, label = var_label(x))
+  x_filled <- labelled(x, labels = labs, label = ll_var_label(x))
 
   x_filled
 }

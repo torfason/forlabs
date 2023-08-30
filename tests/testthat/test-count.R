@@ -50,3 +50,12 @@ test_that("lbl_count(include_var_label = TRUE) works", {
 
   expect_equal(actual, expected)
 })
+
+# All functions must be checked with empty and zero-length labelled variables
+test_that("count works with empty labels", {
+  ltrs_lbl <- ll_labelled(letters)
+  expect_silent(lbl_count(ltrs_lbl))
+
+  zero_lbl <- ll_labelled()
+  expect_silent(lbl_count(zero_lbl))
+})

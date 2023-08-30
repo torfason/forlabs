@@ -13,23 +13,29 @@ globalVariables(".data")
 ## usethis namespace: end
 NULL
 
-## Imports and re-expors from labelled package
-#' @importFrom labelled labelled
+## Imports and re-exports from labelled package
+#' @importFrom haven labelled
 #' @export
-labelled::labelled
+haven::labelled
 
-#' @importFrom labelled to_labelled
-#' @export
-labelled::to_labelled
+#' @importFrom vctrs vec_data
+vctrs::vec_data
 
-#' @importFrom labelled to_factor
-#' @export
-labelled::to_factor
+#' @importFrom vctrs vec_c
+vctrs::vec_c
 
-#' @importFrom labelled var_label
-#' @export
-labelled::var_label
+#' @importFrom zmisc ll_assert_labelled
+zmisc::ll_assert_labelled
 
-#' @importFrom labelled val_labels
-#' @export
-labelled::val_labels
+#' @importFrom zmisc ll_to_character
+zmisc::ll_to_character
+
+#' @importFrom zmisc ll_labelled
+zmisc::ll_labelled
+
+#' @importFrom zmisc ll_val_labels
+zmisc::ll_val_labels
+
+#' @importFrom zmisc ll_var_label
+zmisc::ll_var_label
+

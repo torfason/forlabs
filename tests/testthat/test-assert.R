@@ -11,69 +11,78 @@ test_that("(assert|check|test)_character works", {
 })
 
 # Assertions on the type
-test_that("lbl_(assert|check|test)_labelled work overall", {
-  expect_true(  lbl_check_labelled(fruit_lbl) )
-  expect_true(  lbl_test_labelled(fruit_lbl) )
-  expect_equal( lbl_assert_labelled(fruit_lbl), fruit_lbl )
+test_that("zmisc::ll_assert_labelled works", {
 
-  expect_match( lbl_check_labelled(fruit_fct), "Must inherit from class 'haven_labelled'" )
-  expect_false( lbl_test_labelled(fruit_fct) )
-  expect_error( lbl_assert_labelled(fruit_fct) )
+  # This should pass
+  expect_equal( ll_assert_labelled(fruit_lbl), fruit_lbl )
 
-  expect_match( lbl_check_labelled(letters), "Must inherit from class 'haven_labelled'" )
-  expect_false( lbl_test_labelled(letters) )
-  expect_error( lbl_assert_labelled(letters) )
+  # These should fail
+  expect_error( ll_assert_labelled(fruit_fct), "x must be of class .haven_labelled." )
+  expect_error( ll_assert_labelled(letters), "x must be of class .haven_labelled." )
 })
 
 # More complex assertions
-test_that("lbl_(assert|check|test)_labelled work in complex cases", {
-  illegal_labelled <- labelled(letters)
-  attr(illegal_labelled, "labels") <- c(a=1)
+test_that("zmisc::ll_assert_labelled works in complex cases", {
 
-  # first, lbl_check_labelled
-  expect_true(  lbl_check_labelled(labelled(letters)))
-  # expect_match( lbl_check_labelled(labelled(letters), val_labels_null = "error"),
-  #               "Type of val_labels\\(x\\) must be")
-  expect_match( lbl_check_labelled(illegal_labelled),
-                "Type of val_labels\\(x\\) must be")
-  # expect_match( lbl_check_labelled(illegal_labelled, val_labels_null = "error"),
-  #               "Type of val_labels\\(x\\) must be")
+  # Construct an invalid labelled variable
+  invalid_labelled <- labelled(letters)
+  attr(invalid_labelled, "labels") <- c(a=1)
 
-  # then, lbl_test_labelled
-  expect_true(  lbl_test_labelled(labelled(letters)))
-  # expect_false( lbl_test_labelled(labelled(letters), val_labels_null = "error"))
-  expect_false( lbl_test_labelled(illegal_labelled))
-  # expect_false( lbl_test_labelled(illegal_labelled, val_labels_null = "error"))
-
-  # finally, lbl_assert_labelled
-  expect_equal( lbl_assert_labelled(labelled(letters)), labelled(letters))
-  # expect_error( lbl_assert_labelled(labelled(letters), val_labels_null = "error"))
-  expect_error( lbl_assert_labelled(illegal_labelled))
-  # expect_error( lbl_assert_labelled(illegal_labelled, val_labels_null = "error"))
-
-  # # We must check the "add case" explicitly
-  # expect_equal( lbl_assert_labelled(labelled(letters), val_labels_null = "add"),
-  #               labelled(letters, labels=character() |> setNames(character())))
-  # expect_error( lbl_assert_labelled(illegal_labelled, val_labels_null = "add"))
+  # Test a strange (but legal) labelled, and an illegal one
+  expect_equal( ll_assert_labelled(labelled(letters)), labelled(letters))
+  expect_error( ll_assert_labelled(invalid_labelled), "labels must be of same type as x")
 })
 
-
-test_that("assertion function tests are skipped (not implemented)", {
-  # Next up is implementing assertion functions for labelled
-  #   - lbl_check_filled + test/assert
-  #   - lbl_check_dense + test/assert
-  skip("assertion functions")
+# All functions must be checked with empty and zero-length labels
+test_that("assertions works with empty labels", {
+  ltrs <- ll_labelled(letters)
+  expect_silent(ll_assert_labelled(ltrs))
 })
 
-test_that('TODO', {
-  skip('assert:: Not testing parameter val_labels_null="c("ok", "error", "add")')
+# All functions must be checked with empty and zero-length labelled variables
+test_that("count works with empty labels", {
+  ltrs_lbl <- ll_labelled(letters)
+  expect_equal(ll_assert_labelled(ltrs_lbl), ltrs_lbl)
+
+  zero_lbl <- ll_labelled()
+  expect_equal(ll_assert_labelled(zero_lbl), zero_lbl)
 })
 
-test_that('TODO', {
-  # Replace these all with lbl_test_filled()
-  skip('Replace all instance of "(!all(is.na(labelled::val_labels_to_na(x))))"')
+test_that("lbl_assert_filled() works", {
+
+  # Assertions that should work
+  expect_equal(lbl_assert_filled(fruit_lbl), fruit_lbl)
+  expect_equal(lbl_assert_filled(fruit_lbl_int), fruit_lbl_int)
+  expect_equal(lbl_assert_filled(fruit_lbl_chr), fruit_lbl_chr)
+  expect_equal(lbl_assert_filled(veggies), veggies)
+  expect_equal(lbl_assert_filled(c(veggies, NA)), c(veggies, NA)) # NA is OK in unfilled
+
+  # Assertions that should not work
+  expect_error(lbl_assert_filled(fruit_fct), "x must be of class .haven_labelled.")
+  expect_error(lbl_assert_filled(exotic_veggies), "x must not have any unlabelled values")
+
 })
 
-test_that('TODO', {
-  skip('Implement lbl_collapse()')
+test_that("lbl_assert_dense() works", {
+
+  # Assertions that should work
+  expect_equal(lbl_assert_dense(fruit_lbl), fruit_lbl)
+  expect_equal(lbl_assert_dense(fruit_lbl_int), fruit_lbl_int)
+  expect_equal(lbl_assert_dense(c(fruit_lbl, NA)), c(fruit_lbl, NA)) # NA is OK
+
+  # A densified version of veggies should pass the test, and the character
+  # version should match the original
+  expect_equal(
+    lbl_assert_dense(lbl_densify(veggies)) |> ll_to_character(),
+    veggies |> ll_to_character()
+  )
+
+  # These should error
+  expect_error(lbl_assert_dense(fruit_lbl_chr), "x must not be of character type")
+  expect_error(lbl_assert_dense(veggies), "The value labels of x must be dense")
+
+  # Assertions that should not work
+  expect_error(lbl_assert_dense(fruit_fct), "x must be of class .haven_labelled.")
+  expect_error(lbl_assert_dense(exotic_veggies), "x must not have any unlabelled values")
+
 })

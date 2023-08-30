@@ -24,10 +24,14 @@ associated with their respective values and the variable label (if present)
 is preserved.
 }
 \description{
-The \code{lbl_densify} function takes a labeled vector and assigns new,
+The \code{lbl_densify} function takes a labelled vector and assigns new,
 densely-ranked integer values to each unique value in the vector. The order
 of the unique values is preserved. This function keeps the labels correctly
 associated with their respective values throughout the densifying process.
+
+The subtype (\code{typeof(x)}) of the labelled is preserved for \code{double} and
+\code{integer}, but \code{character} variables (\verb{<labelled<character>>}) are not
+supported as densification is not applicable for character strings.
 }
 \examples{
   # Densify the veggies vector

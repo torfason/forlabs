@@ -21,10 +21,10 @@
 lbl_drop <- function(x) {
 
   # Check args
-  check_labelled(x)
+  ll_assert_labelled(x)
 
   # Get the existing labels
-  labs <- val_labels(x) %||% empty_val_labels(x)
+  labs <- ll_val_labels(x, always = TRUE)
 
   # Find the labels that are not used in the vector
   unused_labs <- setdiff(labs, unique(x))
@@ -33,5 +33,5 @@ lbl_drop <- function(x) {
   new_labs <- labs[!(labs %in% unused_labs)]
 
   # Return fresh var with updated labels, and variable label preserved
-  labelled(x, labels = new_labs, label = var_label(x))
+  labelled(x, labels = new_labs, label = ll_var_label(x))
 }
