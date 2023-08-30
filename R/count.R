@@ -10,7 +10,7 @@
 #' @param include_var_label Should an extra line be included with the variable
 #'   label (if any).
 #'
-#' @return A tibble with columns `v`, `l`, `n` and `p`, if prop is `TRUE`.
+#' @return A `tibble` with columns `v`, `l`, `n` and `p`, if prop is `TRUE`.
 #'
 #' @examples
 #'   table(fruit_lbl)

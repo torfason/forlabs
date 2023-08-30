@@ -5,13 +5,16 @@
 
 <!-- badges: start -->
 
+[![GitHub
+version](https://img.shields.io/badge/Git-0.0.2-success)](https://github.com/torfason/zmisc)
 [![R-CMD-check](https://github.com/torfason/forlabs/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/torfason/forlabs/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 ## Tools for Working with Labelled Variables
 
-This package aims to be for labelled variables (`haven_labelled`) what
-the `forcats` package is for categorical variables (`factor`).
+Provides functions for labelled variables (`haven_labelled`) that
+correspond to those that the `forcats` package provides for categorical
+variables (`factor`).
 
 ## Installation
 
@@ -85,7 +88,7 @@ dense_veggies <- veggies |> lbl_densify()
 dense_veggies |> lbl_count() #|> gt::gt()
 #> # A tibble: 5 × 3
 #>       v l            n
-#>   <int> <chr>    <dbl>
+#>   <dbl> <chr>    <dbl>
 #> 1     1 Carrot      17
 #> 2     2 Potato      10
 #> 3     3 Tomato       7

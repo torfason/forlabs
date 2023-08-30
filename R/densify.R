@@ -1,5 +1,5 @@
 
-#' Densify a labeled vector
+#' Densify a labelled vector
 #'
 #' @description
 #' The `lbl_densify` function takes a labelled vector and assigns new,
@@ -7,18 +7,18 @@
 #' of the unique values is preserved. This function keeps the labels correctly
 #' associated with their respective values throughout the densifying process.
 #'
-#' The subtype (`typeof(x)`) of the labelled is preserved for `double` and
+#' The sub-type (`typeof(x)`) of the labelled is preserved for `double` and
 #' `integer`, but `character` variables (`<labelled<character>>`) are not
 #' supported as densification is not applicable for character strings.
 #'
 #' @param x A labelled vector to be densified.
 #' @param unlabelled This parameter determines the handling of unlabelled values
 #'   in the input vector. It can take two values:
-#'    - "error": Thow an error if there are unlabelled values in the vector.
+#'    - "error": Throw an error if there are unlabelled values in the vector.
 #'    - "fill": Fill in labels for any unlabelled values using [`lbl_fill()`]
 #'   before densifying.
 #'
-#' @return A labeled vector of the same length as the original vector, `x`, but
+#' @return A labelled vector of the same length as the original vector, `x`, but
 #'   with values replaced with their dense ranks. The labels are correctly
 #'   associated with their respective values and the variable label (if present)
 #'   is preserved.

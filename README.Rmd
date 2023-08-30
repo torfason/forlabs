@@ -18,6 +18,7 @@ knitr::opts_chunk$set(
 # forlabs
 
 <!-- badges: start -->
+[![GitHub version](https://img.shields.io/badge/Git-`r desc::desc_get_version() `-success)](https://github.com/torfason/zmisc)
 [![R-CMD-check](https://github.com/torfason/forlabs/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/torfason/forlabs/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 

@@ -2,7 +2,7 @@
 % Please edit documentation in R/densify.R
 \name{lbl_densify}
 \alias{lbl_densify}
-\title{Densify a labeled vector}
+\title{Densify a labelled vector}
 \usage{
 lbl_densify(x, unlabelled = c("error", "fill"))
 }
@@ -12,13 +12,13 @@ lbl_densify(x, unlabelled = c("error", "fill"))
 \item{unlabelled}{This parameter determines the handling of unlabelled values
 in the input vector. It can take two values:
 \itemize{
-\item "error": Thow an error if there are unlabelled values in the vector.
+\item "error": Throw an error if there are unlabelled values in the vector.
 \item "fill": Fill in labels for any unlabelled values using \code{\link[=lbl_fill]{lbl_fill()}}
 before densifying.
 }}
 }
 \value{
-A labeled vector of the same length as the original vector, \code{x}, but
+A labelled vector of the same length as the original vector, \code{x}, but
 with values replaced with their dense ranks. The labels are correctly
 associated with their respective values and the variable label (if present)
 is preserved.
@@ -29,7 +29,7 @@ densely-ranked integer values to each unique value in the vector. The order
 of the unique values is preserved. This function keeps the labels correctly
 associated with their respective values throughout the densifying process.
 
-The subtype (\code{typeof(x)}) of the labelled is preserved for \code{double} and
+The sub-type (\code{typeof(x)}) of the labelled is preserved for \code{double} and
 \code{integer}, but \code{character} variables (\verb{<labelled<character>>}) are not
 supported as densification is not applicable for character strings.
 }

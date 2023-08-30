@@ -6,7 +6,7 @@
 \alias{forlabs-package}
 \title{forlabs: Tools for Working with Labelled Variables}
 \description{
-This package aims to be for labelled variables (`haven_labelled`) what the `forcats` package is for categorical variables (`factor`).
+Provides functions for labelled variables (`haven_labelled`) that correspond to those that the `forcats` package provides for categorical variables (`factor`).
 }
 \seealso{
 Useful links:

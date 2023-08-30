@@ -3,9 +3,9 @@ Title: Tools for Working with Labelled Variables
 Version: 0.0.2
 Authors@R: 
     person("Magnus Thor", "Torfason", , "m@zulutime.net", role = c("aut", "cre"))
-Description: This package aims to be for labelled variables
-    (`haven_labelled`) what the `forcats` package is for categorical
-    variables (`factor`).
+Description: Provides functions for labelled variables (`haven_labelled`)
+    that correspond to those that the `forcats` package provides for
+    categorical variables (`factor`).
 License: MIT + file LICENSE
 URL: https://github.com/torfason/forlabs,
     https://torfason.github.io/forlabs/
@@ -29,6 +29,7 @@ Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Encoding: UTF-8
+Language: en-us
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3

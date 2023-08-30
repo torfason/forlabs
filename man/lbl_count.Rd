@@ -21,7 +21,7 @@ order of the \emph{values} of the labelled variable.}
 label (if any).}
 }
 \value{
-A tibble with columns \code{v}, \code{l}, \code{n} and \code{p}, if prop is \code{TRUE}.
+A \code{tibble} with columns \code{v}, \code{l}, \code{n} and \code{p}, if prop is \code{TRUE}.
 }
 \description{
 Count entries in a labelled variable

@@ -22,7 +22,7 @@ A \code{labelled} object with shifted labels.
 }
 \description{
 This function shifts the levels of a labelled vector to the left or right.
-Unlike \code{\link[forcats:fct_shift]{forcats::fct_shift()}} from the forcats package, which works with
+Unlike \code{forcats::fct_shift()} from the \code{forcats} package, which works with
 factors, this function is designed to work with haven's labelled vectors.
 Given that labelled vectors can have any values, shifting simply increases or
 decreases the values of the vector, updating the labels to match. Shifting by
