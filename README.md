@@ -6,7 +6,7 @@
 <!-- badges: start -->
 
 [![GitHub
-version](https://img.shields.io/badge/Git-0.0.2-success)](https://github.com/torfason/zmisc)
+version](https://img.shields.io/badge/Git-0.0.3-success)](https://github.com/torfason/zmisc)
 [![R-CMD-check](https://github.com/torfason/forlabs/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/torfason/forlabs/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 

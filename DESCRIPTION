@@ -1,6 +1,6 @@
 Package: forlabs
 Title: Tools for Working with Labelled Variables
-Version: 0.0.2
+Version: 0.0.3
 Authors@R: 
     person("Magnus Thor", "Torfason", , "m@zulutime.net", role = c("aut", "cre"))
 Description: Provides functions for labelled variables (`haven_labelled`)
