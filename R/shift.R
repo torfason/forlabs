@@ -51,8 +51,12 @@ lbl_shift <- function(x, n = -1L, rotate = FALSE) {
     n <- as.integer(n)
   }
 
+  # Do the shift
+  labs <- ll_val_labels(x, always = TRUE) + n
+  if (length(labs) == 0) labs <- NULL
+
   # Treat
-  labelled(x + n, labels = ll_val_labels(x, always = TRUE) + n, label = ll_var_label(x))
+  labelled(x + n, labels = labs, label = ll_var_label(x))
 }
 
 

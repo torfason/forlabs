@@ -38,6 +38,6 @@ test_that("shift works with empty labels", {
   zero_lbl <- ll_labelled()
   expect_silent(lbl_shift(zero_lbl))
 
-  # This does not hold, because an empty labels attribute is added
-  #expect_equal(lbl_shift(zero_lbl), zero_lbl)
+  # Shifting a variable without any value labels is idempotent
+  expect_equal(lbl_shift(zero_lbl), zero_lbl)
 })
