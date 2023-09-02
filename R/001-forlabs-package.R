@@ -36,6 +36,11 @@ zmisc::ll_labelled
 #' @importFrom zmisc ll_val_labels
 zmisc::ll_val_labels
 
+#' @importFrom zmisc ll_val_labels<-
+zmisc::"ll_val_labels<-"
+
 #' @importFrom zmisc ll_var_label
 zmisc::ll_var_label
 
+#' @importFrom zmisc ll_var_label<-
+zmisc::"ll_var_label<-"

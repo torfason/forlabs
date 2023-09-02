@@ -11,7 +11,9 @@
 \alias{ll_to_character}
 \alias{ll_labelled}
 \alias{ll_val_labels}
+\alias{ll_val_labels<-}
 \alias{ll_var_label}
+\alias{ll_var_label<-}
 \alias{qassert}
 \alias{assert_flag}
 \alias{assert_int}
@@ -74,6 +76,6 @@ below to see their documentation.
 
   \item{vctrs}{\code{\link[vctrs]{vec_c}}, \code{\link[vctrs]{vec_data}}}
 
-  \item{zmisc}{\code{\link[zmisc]{ll_assert_labelled}}, \code{\link[zmisc]{ll_labelled}}, \code{\link[zmisc]{ll_to_character}}, \code{\link[zmisc]{ll_val_labels}}, \code{\link[zmisc]{ll_var_label}}}
+  \item{zmisc}{\code{\link[zmisc]{ll_assert_labelled}}, \code{\link[zmisc]{ll_labelled}}, \code{\link[zmisc]{ll_to_character}}, \code{\link[zmisc]{ll_val_labels}}, \code{\link[zmisc:ll_val_labels]{ll_val_labels<-}}, \code{\link[zmisc]{ll_var_label}}, \code{\link[zmisc:ll_var_label]{ll_var_label<-}}}
 }}
 
