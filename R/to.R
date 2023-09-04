@@ -55,7 +55,7 @@ lbl_to <- function(d, ...,
                    .unfilled = c("error", "fill", "na")) {
 
   # Check args
-  is.data.frame(d) || stop("d must be a data frame")
+  assert_data_frame(d)
   (match.arg(.unfilled) == "error") || stop("Only .unfilled == 'error' is implemented")
 
   # Helper functions for specific conversions
