@@ -95,3 +95,28 @@ test_that("recode works with empty labels", {
   # This does not hold, because an empty labels attribute is added
   expect_equal(lbl_shift(zero_lbl), zero_lbl)
 })
+
+
+
+test_that("lbls_recode_labels works", {
+
+  have <- lbl_recode_labels(veggies,
+      "Carrot" ~ "A straight underground veggie",
+      "Potato" ~ "A round underground veggie",
+      "Tomato" ~ "A round overground veggie",
+      "Cucumber" ~ "A (mostly) straight overground veggie")
+  have
+
+  expect_equal(as.vector(have), as.vector(veggies))
+  expect_equal(as.vector(ll_val_labels(have)),
+               as.vector(ll_val_labels(veggies)))
+  expect_match(lbl_count(have)$l, "veggie|Broccoli")
+
+  have <- lbl_recode_labels(veggies,
+      .lookup_table = c("Tomato" = "Tomaaato"))
+  expect_equal(as.vector(have), as.vector(veggies))
+  expect_equal(as.vector(ll_val_labels(have)),
+               as.vector(ll_val_labels(veggies)))
+  expect_match(lbl_count(have)$l[3], "Tomaaato")
+
+})

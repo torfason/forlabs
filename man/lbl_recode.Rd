@@ -2,14 +2,24 @@
 % Please edit documentation in R/recode.R
 \name{lbl_recode}
 \alias{lbl_recode}
-\title{Recode labelled variables using tilde notation}
+\alias{lbl_recode_values}
+\alias{lbl_recode_labels}
+\title{Recode labelled variables using either formula notation or lookup tables}
 \usage{
-lbl_recode(.x, ..., .sep = " / ")
+lbl_recode(.x, ..., .lookup_table = NULL, .sep = " / ")
+
+lbl_recode_values(.x, ..., .lookup_table = NULL, .sep = " / ")
+
+lbl_recode_labels(.x, ..., .lookup_table = NULL)
 }
 \arguments{
 \item{.x}{The \code{labelled} vector to recode.}
 
-\item{...}{A recode specification in \code{tilde} (\code{formula}) syntax.}
+\item{...}{A recode specification in \code{tilde} (\code{formula}) syntax. See
+\code{dplyr::case_match()} for specifics about the format of the parameter.}
+
+\item{.lookup_table}{A recode specification in the form of a lookup table.
+See \code{zmisc::lookup()} for specifics about the format of the parameter.}
 
 \item{.sep}{A string for how to separate labels that need to be combined.}
 }
@@ -17,20 +27,52 @@ lbl_recode(.x, ..., .sep = " / ")
 The re-coded vector.
 }
 \description{
-Recodes labelled variables and takes care to recode the levels of the value
-labels so that the labels continue to track the underlying values. Recoding
-multiple values to the same value results in corresponding variable labels
-being combined. Recoding to \code{NA} results in corresponding labels to be
-dropped since \code{NA} should not be labelled in standard \code{haven_labelled}
-variables.
+These functions recode labelled variables while taking special care to keep
+the \emph{values} and the \emph{labels} (a.k.a. value labels) of the variable in sync.
+They assume that the value labels are meaningfully related to the values, so
+when recoding values, the functions take care to recode the levels of the
+value labels  so that the labels continue to track the underlying values.
 
-The underlying recoding takes place using \code{dplyr::case_match()}, which takes
-\code{tilde} or \code{formula} notation.
+For recoding using \code{formula} or \code{tilde} notation, the underlying recoding
+takes place using \code{dplyr::case_match()}, and for recoding using a lookup
+table (provided either as a named \code{vector}/\code{list} or as a \code{data.frame}) is
+done using \code{zmisc::lookup()}. Both methods can be used in the same call, in
+that case the \code{formula} notation is applied first, followed by the
+application of the lookup table.
+
+\code{lbl_recode()} does the recode operation on the \emph{values} but updates the
+levels of the value labels accordingly. This is appropriate before using the
+variable for plots or statistical analyses. Recoding multiple values to the
+same value results in corresponding variable labels being combined. Recoding
+to \code{NA} results in corresponding labels to be dropped since \code{NA} should not
+be labelled in standard \code{haven_labelled} variables.
+
+\code{lbl_recode_values()} is an alias for \code{lbl_recode()}, but makes it explicit
+that focal target of the recoding is the underlying values in the \code{labelled}
+variable.
+
+\code{lbl_recode_labels()} recodes the \emph{text description} of the labels attached to the
+\code{labelled} variable, leaving the underlying values unchanged. This is appropriate to do before
+using the variable in functions that display the labels, in particular if the output is intended
+for a final product or publication.
 }
 \examples{
 lbl_recode(fruit_lbl, 1:2 ~ 1, 3 ~ 2, 4:5 ~ 3)
 lbl_recode(fruit_lbl_chr, "d" ~ "z", "e" ~ NA)
-lbl_recode(exotic_veggies, 3:10 ~ 1, 11:20 ~ 2, 21:41 ~ 3,
-                           2 ~ NA, NA ~ 99)
+lbl_recode(fruit_lbl_chr, .lookup_table = c(a = "b", e = "d"))
+
+exotic_recoded <- lbl_recode(exotic_veggies,
+                             3:10 ~ 1, 11:20 ~ 2, 21:41 ~ 3,
+                             2 ~ NA, NA ~ 99)
+lbl_count(exotic_recoded)
+
+lbl_recode_labels(veggies,
+    "Carrot" ~ "A straight underground veggie",
+    "Potato" ~ "A round underground veggie",
+    "Tomato" ~ "A round overground veggie",
+    "Cucumber" ~ "A (mostly) straight overground veggie")
+
+lbl_recode_labels(veggies,
+    .lookup_table = c("Tomato" = "Tomaaato"))
 
 }
